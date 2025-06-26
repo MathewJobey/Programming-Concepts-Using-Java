@@ -1,0 +1,52 @@
+[Robocopy Sync Log - 26-06-2025 14:10:07.05] 
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Thursday, 26 June, 2025 02:10:07 PM
+   Source : C:\Users\Mathe\Downloads\notion-temp\
+     Dest : C:\GitHub\Programming-Concepts-Using-Java\
+
+    Files : *
+	    
+Exc Files : README.md
+	    LICENSE
+	    .gitignore
+	    .gitattributes
+	    
+ Exc Dirs : .git
+	    
+  Options : /S /E /DCOPY:DA /COPY:DAT /PURGE /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   1	C:\Users\Mathe\Downloads\notion-temp\
+	  *EXTRA File 		      47	last-robocopy.log
+2025/06/26 14:10:07 ERROR 32 (0x00000020) Deleting Extra File C:\GitHub\Programming-Concepts-Using-Java\last-robocopy.log
+The process cannot access the file because it is being used by another process.
+
+	    Newer     		   20000	Programming Concepts Using Java.html100%  
+	                   3	C:\Users\Mathe\Downloads\notion-temp\Programming Concepts Using Java\
+	                   5	C:\Users\Mathe\Downloads\notion-temp\Programming Concepts Using Java\Lecture Notes & Status\
+	    Newer     		   18120	Untitled.html100%  
+	    Newer     		   29573	Week 1.html100%  
+	    Newer     		   49506	Week 2.html100%  
+	    Newer     		   18256	Week 3.html100%  
+	    Newer     		   18124	Week 4.html100%  
+	                   5	C:\Users\Mathe\Downloads\notion-temp\Programming Concepts Using Java\Lecture Notes & Status\Week 1\
+	                   5	C:\Users\Mathe\Downloads\notion-temp\Programming Concepts Using Java\Lecture Notes & Status\Week 2\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         5         0         5         0         0         1
+   Files :        19         6        13         0         0         2
+   Bytes :   983.1 k   149.9 k   833.1 k         0         0     1.1 k
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+
+   Speed :           47,99,343 Bytes/sec.
+   Speed :             274.621 MegaBytes/min.
+   Ended : Thursday, 26 June, 2025 02:10:07 PM
+

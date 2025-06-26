@@ -1,0 +1,694 @@
+<html><head><meta charset="utf-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Week 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article class="page sans" id="21ca2a47-e0e7-80d6-af66-e1e7dcd95edf"><header><h1 class="page-title">Week 1</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><svg aria-hidden="true" class="typesStatus" role="graphics-symbol" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" viewbox="0 0 16 16"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>Status</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Done</span></td></tr></tbody></table></header><div class="page-body"><figure class="image" id="1fca2a47-e0e7-8022-b33e-e588c3d67c4e"><a href="Week%201/image.png"><img src="Week%201/image.png" style="width:1344px"/></a></figure><h3 class="" id="1fda2a47-e0e7-80ef-945c-f151ee38b4e7"><span style="border-bottom:0.05em solid">Dynamic vs Static type</span></h3><p class="" id="1fda2a47-e0e7-809e-9e39-c4c9d0d99ce2">every variable has a type.</p><ul class="bulleted-list" id="1fda2a47-e0e7-803c-8cdb-c1f8816af082"><li style="list-style-type:disc">python is dynamically typed ,i.e; the type of x is derived when x is assigned to something.<br/>eg)x=10, x is int<br/></li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80ec-b3cb-d0fe8ecfa261"><li style="list-style-type:disc">Java, C are all Statically typed - the type for x is initialized upfront in the program and will be used throughout as so. Not supposed to change it. eg) int x , float number. <br/><br/><mark class="highlight-red">ILLEGAL int x = 7.5</mark></li></ul><p class="" id="1fda2a47-e0e7-801a-93c2-cddb7dd03d11"><span style="border-bottom:0.05em solid">Problem of Dynamic Typing</span></p><ul class="bulleted-list" id="1fda2a47-e0e7-8047-921f-f8271088eaea"><li style="list-style-type:disc">wont be able to tell errors. here python just thinks factorlst is just another variable.<script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="1fda2a47-e0e7-80c2-8645-e75d28ccf82d"><code class="language-JavaScript">`def factors(n):
+factorlist = []
+for i in range(1, n+1):`
+
+`if n % i == 0:
+factorlst = factorlist + [i]  # Typo here!`</code></pre><p class="" id="1fda2a47-e0e7-8093-9c07-e227e67858f7"><mark class="highlight-default"><mark class="highlight-default_background"><code>return(factorlist)</code></mark></mark><mark class="highlight-default"><mark class="highlight-default_background"> </mark></mark></p></li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80d0-b6ca-d22f8532b8be"><li style="list-style-type:disc">when using user-defined data structures like linked lists… when we initialize     l=none; python dont know if its a list or node or etc until we provide more info.</li></ul><h3 class="" id="1fda2a47-e0e7-800a-85d9-ee1a66900821"><span style="border-bottom:0.05em solid">Scope and Lifetime of a variable</span></h3><ul class="bulleted-list" id="1fda2a47-e0e7-8035-a00c-fef0e9a5dd1a"><li style="list-style-type:disc">scope of x means where all u can use this variable x in the program.<ul class="bulleted-list" id="1fda2a47-e0e7-8026-ba91-f2f54ba243cb"><li style="list-style-type:circle">multiple x's can be used in single pgm but all might be in different scopes.</li></ul></li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80af-a2a1-c2142adb0548"><li style="list-style-type:disc"><em><strong>lifetime of a variable</strong></em> specifies the duration for which the computer allocates memory to it, from allocation to deallocation.</li></ul><blockquote class="" id="1fda2a47-e0e7-80d5-b49a-c6d74bf9a4d8">Hole in Scope- <script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="1fda2a47-e0e7-8049-8c92-dfc523f5cd7b"><code class="language-Python">def f():
+    for x in [1, 2, 3]:
+        y = g(x)
+        # x is accessible here ✅
+    # here, x is not accessible ❌ (hole in scope — x is alive, but you can't access it)
+</code></pre></blockquote><h3 class="" id="1fda2a47-e0e7-8015-88cc-fcde89ff42b5"><span style="border-bottom:0.05em solid">Memory Stack</span></h3><ul class="bulleted-list" id="1fda2a47-e0e7-80f3-8ba0-d21ae4955540"><li style="list-style-type:disc">each fxn call leads to its <mark class="highlight-blue"><strong>activation record</strong></mark> being pushed to the stack and popped out when execution is complete.<ul class="bulleted-list" id="1fda2a47-e0e7-8047-85d9-c57a6bce3ffc"><li style="list-style-type:circle">Control Link - points to prev activation rec eg) fac1→fact2→fac3.</li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80b7-ad1c-ccc0cc3b9aba"><li style="list-style-type:circle">Return Value Link - tells where to store the result.</li></ul><figure class="image" id="1fda2a47-e0e7-8016-829a-cac2c6806860"><a href="Week%201/image%201.png"><img src="Week%201/image%201.png" style="width:432px"/></a></figure><figure class="image" id="1fda2a47-e0e7-809e-b5ef-f5b08ed59b9d"><a href="Week%201/image%202.png"><img src="Week%201/image%202.png" style="width:1008px"/></a></figure></li></ul><h3 class="" id="1fda2a47-e0e7-80bc-a49f-ca7e18c1a63e"><span style="border-bottom:0.05em solid">Passing Arguments to Function</span></h3><ul class="bulleted-list" id="1fda2a47-e0e7-802a-bf4e-ec4235b98e57"><li style="list-style-type:disc">Call by Value:- values of the actual parameters are copied to the formal parameters(parameters of the function def)<figure class="image" id="1fda2a47-e0e7-80bb-8530-dce0fc1ef7dd"><a href="Week%201/image%203.png"><img src="Week%201/image%203.png" style="width:432px"/></a></figure></li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-8069-9e45-eb4819efc893"><li style="list-style-type:disc">Call by Reference:- address of the values of the actual parameters are sent to the formal parameters and thereby allowing the fxn to change the values present at those addresses. </li></ul><figure class="image" id="1fda2a47-e0e7-80c4-806b-ec275160d6a6"><a href="Week%201/image%204.png"><img src="Week%201/image%204.png" style="width:480px"/></a></figure><h3 class="" id="1fda2a47-e0e7-802f-862e-f56141754b6e"><span style="border-bottom:0.05em solid">Heap Memory</span></h3><ul class="bulleted-list" id="1fda2a47-e0e7-80b9-bdb0-d45f97873b4f"><li style="list-style-type:disc">outlives stack memory </li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80d8-8acd-df61c009eacf"><li style="list-style-type:disc">used when u donno how much mry u need eg) linked list or array , i.e dynamic memory situations</li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80f2-a57c-e6bb60c98111"><li style="list-style-type:disc">manually removal (in C using malloc()/free() )or automatic heap storage removal(in java/ python by Garbage Collector frees unused heap mry using <mark class="highlight-red">mark and sweep (not reachable)</mark>)<ul class="bulleted-list" id="1fda2a47-e0e7-80e6-acce-e6571981db1b"><li style="list-style-type:circle"><em>Memory Leak </em> happens when the unused mry is not freed and persists in heap, leading to slower access of heap mry, hoarding up of unwanted data.eg) like a tap opened for use but never closed.</li></ul></li></ul><hr id="1fda2a47-e0e7-80ce-8cb6-cd8a24d0c957"/><h3 class="" id="1fda2a47-e0e7-8028-a7e7-d6193f3de792"><span style="border-bottom:0.05em solid">Abstraction &amp; Modularity</span></h3><table class="simple-table" id="1fda2a47-e0e7-8053-b668-fa76b7184162"><tbody><tr id="1fda2a47-e0e7-8009-bcbb-cb323111cb93"><td class="" id="QbPG">Concept</td><td class="" id="&lt;}bR">What is hidden?</td><td class="" id="Q?k}">What is shown?</td><td class="" id="KPx^">Example</td></tr><tr id="1fda2a47-e0e7-808e-af96-d3e18ff549e4"><td class="" id="QbPG"><strong>Control Abstraction</strong></td><td class="" id="&lt;}bR">Internal steps in flow control</td><td class="" id="Q?k}">The task you want to perform</td><td class="" id="KPx^"><code>if</code>, <code>for</code>, <code>function()</code></td></tr><tr id="1fda2a47-e0e7-80f0-8dc8-f797038e6428"><td class="" id="QbPG"><strong>Data Abstraction</strong></td><td class="" id="&lt;}bR">Internal data structure or layout</td><td class="" id="Q?k}">The operations you can do</td><td class="" id="KPx^"><code>.push()</code>, <code>.append()</code>, <code>.pop()</code></td></tr></tbody></table><h3 class="" id="1fda2a47-e0e7-80f9-a7fe-fa4bd8ccae7d"><span style="border-bottom:0.05em solid">OOP</span></h3><figure class="block-color-gray_background callout" id="1fda2a47-e0e7-8076-9f86-da7b4c3d61da" style="white-space:pre-wrap;display:flex"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p class="" id="1fda2a47-e0e7-8063-a7fc-c24ced8274e5">SIMULA - first OOP language created. Implemented using queue for each event.</p></div></figure><p class="" id="1fda2a47-e0e7-8087-82f0-ed7e82a04b2b">An object is an abstract datatype. it can be anything; consist of anything; stacks, queues, an integer, a memory location etc.</p><p class="" id="1fda2a47-e0e7-803c-950d-face8315d501">Features include:-</p><ul class="bulleted-list" id="1fda2a47-e0e7-80e6-b794-f34258083eda"><li style="list-style-type:disc">Abstraction</li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80f4-98ef-f97ede519111"><li style="list-style-type:disc">Subtyping:- a relationship b/w interfaces(check if types of various objects are statically same so that various implementations can be done)<ul class="bulleted-list" id="1fda2a47-e0e7-8009-af2b-d7601b6ea510"><li style="list-style-type:circle">If <strong>A</strong> is subtype of <strong>B</strong> then <strong>A</strong> is specialization of <strong>B</strong></li></ul></li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-808f-bb5b-eb04564a21ad"><li style="list-style-type:disc">Dynamic Lookup:- the choice of the method implementation is looked up and checked during run time only .</li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-8081-9a10-d2b83d03730f"><li style="list-style-type:disc">Inheritance:- a relationship b/w implementations</li></ul><p class="" id="1fda2a47-e0e7-8015-938c-cc25a5c9292c">eg)Stack and Queue <mark class="highlight-red">are not subtypes</mark> of Deque as all implementations of Dequeue cannot be done on stack and queue.<div class="indented"><p class="" id="1fda2a47-e0e7-8081-b766-f120086b79f9">Stack and Queue inherit from Deque(reuse its functions)</p></div></p><hr id="1fda2a47-e0e7-80bf-931c-da20821abdea"/><h3 class="" id="1fda2a47-e0e7-808b-9e8c-f8bf6aa3c4bd"><span style="border-bottom:0.05em solid">Classes &amp; Objects</span></h3><ul class="bulleted-list" id="1fda2a47-e0e7-80e2-9baa-e09d88974a26"><li style="list-style-type:disc">object are encapsuled with - data, operations.</li></ul><ul class="bulleted-list" id="1fda2a47-e0e7-80c8-b387-fd484c76edfd"><li style="list-style-type:disc">Class :- like a data type for each object. has  data and ways to show how data is manipulated.<ul class="bulleted-list" id="1fda2a47-e0e7-8066-af65-f926cab218aa"><li style="list-style-type:circle">objects of this class are like variables of the same data type. how the data in these variables get manipulated is performed by the functions present in the class.</li></ul></li></ul><p class="" id="1fda2a47-e0e7-805b-a938-f8494ab96200">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

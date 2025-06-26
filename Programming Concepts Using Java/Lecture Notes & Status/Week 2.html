@@ -1,0 +1,804 @@
+<html><head><meta charset="utf-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>Week 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article class="page sans" id="21ca2a47-e0e7-80d6-b2a5-ee143b6a0084"><header><h1 class="page-title"><strong><span style="border-bottom:0.05em solid">Week 2</span></strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><svg aria-hidden="true" class="typesStatus" role="graphics-symbol" style="width:14px;height:14px;display:block;fill:rgba(71, 70, 68, 0.6);flex-shrink:0" viewbox="0 0 16 16"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>Status</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Done</span></td></tr></tbody></table></header><div class="page-body"><h1 class="" id="213a2a47-e0e7-8024-8b21-c4ff26e2b298">1) <em><span style="border-bottom:0.05em solid">First Taste Of Java</span></em></h1><figure class="image" id="203a2a47-e0e7-80c9-b58a-e7b63a65d87e" style="text-align:left"><a href="Week%202/image.png"><img src="Week%202/image.png" style="width:624px"/></a></figure><ul class="bulleted-list" id="203a2a47-e0e7-803a-b820-fbcbb24070a2"><li style="list-style-type:disc">execution starts from main function.</li></ul><ul class="bulleted-list" id="203a2a47-e0e7-8098-88ca-c6e67f8f43a4"><li style="list-style-type:disc">all java code needs to be as objects aka inside functions.</li></ul><ul class="bulleted-list" id="204a2a47-e0e7-80ef-9e0d-dc69e093841a"><li style="list-style-type:disc">String [] args is :- java waits for us to type in some arguments in the command line and they get saved into an array named args.eg) String[] apples… stored in an array called apples✅<figure class="image" id="204a2a47-e0e7-80fa-880e-f9d8c6374045"><a href="Week%202/image%201.png"><img src="Week%202/image%201.png" style="width:672px"/></a></figure></li></ul><ul class="bulleted-list" id="204a2a47-e0e7-8024-9e70-ee3306528f6d"><li style="list-style-type:disc"><code>static</code> → no object needed → you can run it directly from <code>main</code>.<p class="" id="204a2a47-e0e7-80e5-ba0c-da1813e00311">not <code>static</code> → you <strong>must create an object first</strong> to use the method or variable.</p></li></ul><p class="" id="204a2a47-e0e7-8090-8ea1-d5e2d52de64d">This is useful because when you create objects, <strong>each one is independent</strong> and can hold its own separate data. That way, objects don't interfere with each other, and you can build more flexible, organized programs.</p><p class="" id="204a2a47-e0e7-8026-878f-f23501dde6bd">That's why the <code>main</code> method <strong>must</strong> be <code>static</code>: Java runs your program before any objects exist, so <code>main()</code> has to work without needing an object.</p><ul class="bulleted-list" id="204a2a47-e0e7-80dd-902b-d91d974be7c8"><li style="list-style-type:disc">When we say a method is <code>void</code>, we're saying: This method doesn't return a value to the code that called it.</li></ul><ul class="bulleted-list" id="206a2a47-e0e7-8087-accd-e641879afe90"><li style="list-style-type:disc"><mark class="highlight-red">System</mark> is a public class and <mark class="highlight-red">out </mark>is a Stream object in it(static obj) and println is a method associated with streams.</li></ul><ul class="bulleted-list" id="206a2a47-e0e7-800f-93f9-cca3d8ba70bf"><li style="list-style-type:disc">java runs using JVM on any machine(OS Independent)</li></ul><h3 class="" id="206a2a47-e0e7-8055-a586-f3c8625146e1"><em><strong><span style="border-bottom:0.05em solid">File Naming</span></strong></em></h3><p class="" id="206a2a47-e0e7-8004-9783-c5184f5f35af"><em>Naming Of File:- name of file=name of the </em><em><mark class="highlight-blue">public class</mark></em><em>. Only 1 public class per java file. if no pubic class, then file name could be anything.</em></p><h3 class="" id="206a2a47-e0e7-80c5-a6ac-f6cf37ee9fb5"><em><strong><span style="border-bottom:0.05em solid">How does it , "write once, run everywhere"?</span></strong></em></h3><figure class="image" id="206a2a47-e0e7-80b6-8c14-c2565da9de86" style="text-align:left"><a href="Week%202/image%202.png"><img src="Week%202/image%202.png" style="width:576px"/></a></figure><p class="" id="206a2a47-e0e7-80ff-bde3-d11ffeeed620">its mainly because of this virtual machine that the code just can be run everywhere.</p><hr id="206a2a47-e0e7-80f3-9eed-ffa65ff9709b"/><h1 class="" id="206a2a47-e0e7-807c-859c-c4cc8022e97b">2) <em><span style="border-bottom:0.05em solid">Basic Datatypes In Java</span></em></h1><p class="" id="206a2a47-e0e7-806f-a205-eb957c1ee9ad">8 primitive Scalar data types:-</p><figure class="image" id="206a2a47-e0e7-80f6-b20c-c4b80da7e968" style="text-align:left"><a href="Week%202/image%203.png"><img src="Week%202/image%203.png" style="width:288px"/></a><figcaption>its for the jvm and hence different machines dont require different sizes for them.</figcaption></figure><ul class="bulleted-list" id="206a2a47-e0e7-808a-9c4d-e26981589651"><li style="list-style-type:disc">char declared in single quote 'x' or 'π' -unicode for pi.</li></ul><ul class="bulleted-list" id="206a2a47-e0e7-80fa-9554-d2ab9b2fc444"><li style="list-style-type:disc">Strings declared in double quotes "hey".</li></ul><ul class="bulleted-list" id="206a2a47-e0e7-8078-8898-d37f18974145"><li style="list-style-type:disc">constant declaration :-<mark class="highlight-red"> final</mark> float x=3.14f</li></ul><h3 class="" id="206a2a47-e0e7-80b0-90ba-dd5564dfce41"><em><span style="border-bottom:0.05em solid">Arithmetic Operations</span></em></h3><p class="" id="206a2a47-e0e7-803b-af21-c9a842dace45">+,-,*,/,%</p><ol class="numbered-list" id="206a2a47-e0e7-808b-972c-d9fbdb90d4f5" start="1" type="1"><li>x/y  value gives int if x and y are int. else coverts to float.<p class="" id="206a2a47-e0e7-80e1-aaee-c229fb495365">eg) float f =22/7; gives value <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span class="notion-text-equation-token" contenteditable="false" data-token-index="0" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>22</mn><mi mathvariant="normal">/</mi><mn>7</mn></mrow><annotation encoding="application/x-tex">22/7</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">22/7</span></span></span></span></span><span></span></span> is 3 and then we asked f to be float so 3→3.0</p></li></ol><ol class="numbered-list" id="206a2a47-e0e7-8077-9669-cb35de337d55" start="2" type="1"><li>Math.pow(a,n) →a<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span class="notion-text-equation-token" contenteditable="false" data-token-index="0" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow></mrow><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">^n</annotation></semantics></math></span><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6644em;"></span><span class="mord"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span></span><span></span></span></li></ol><ol class="numbered-list" id="206a2a47-e0e7-801e-a095-d507768f6314" start="3" type="1"><li>a+=10 → a=a+10;<br/>x*=5 → x=x*5;<br/></li></ol><h3 class="" id="206a2a47-e0e7-80c9-8270-fda7cd025a43"><em><span style="border-bottom:0.05em solid">Strings</span></em></h3><p class="" id="206a2a47-e0e7-8071-8db6-f8048c36c771"><mark class="highlight-yellow">they r objects</mark></p><ol class="numbered-list" id="206a2a47-e0e7-805f-9b31-e354c59995fa" start="1" type="1"><li>String s ="hello";</li></ol><ol class="numbered-list" id="206a2a47-e0e7-8033-a01a-f9159dec1b4b" start="2" type="1"><li><mark class="highlight-red">Concatenation</mark> →<mark class="highlight-teal"><code>String u= s +" "+"bro!";</code></mark><p class="" id="206a2a47-e0e7-8050-9d2f-de72f21149b0">                                 → <mark class="highlight-teal"><mark class="highlight-default_background"><code>s.concat(y);</code></mark></mark><mark class="highlight-teal"><mark class="highlight-default_background"> </mark></mark><mark class="highlight-red"><mark class="highlight-default_background">but s is not changed…aka immutable only way to change s is if u specifically say s=s.concat(y); new s is made and old s is lost in mry.</mark></mark></p><p class="" id="206a2a47-e0e7-8023-82b2-e860bd9ac2c7">// "hello bro!"</p></li></ol><ol class="numbered-list" id="206a2a47-e0e7-8017-8407-f6cd8221f116" start="3" type="1"><li>Strings are immutable →once created cant be changed.<br/>eg)<br/><mark class="highlight-teal"> </mark><mark class="highlight-teal"><mark class="highlight-teal_background"><code>s=s.substring(0,3) + "p";</code></mark></mark><mark class="highlight-red"><mark class="highlight-default_background"> from 0 to 3 but consider only 0,1,2</mark></mark><p class="" id="206a2a47-e0e7-80f7-a0cd-c44e08b5b5db">// "Help" </p><p class="" id="206a2a47-e0e7-8056-80b6-ebbcb475ee67">here s is not the old string getting updated , instead in mry s is a new location and the old s is lost in garbage which will later on be removed automatically by java's GB.</p></li></ol><ol class="numbered-list" id="206a2a47-e0e7-80ed-beba-cc6d7e0ede78" start="4" type="1"><li> <mark class="highlight-teal"><mark class="highlight-teal_background"><code>s.length()</code></mark></mark><mark class="highlight-default"><mark class="highlight-default_background">length of </mark></mark> string.</li></ol><ol class="numbered-list" id="213a2a47-e0e7-8034-bca8-c224df6b19cd" start="5" type="1"><li><mark class="highlight-teal">s.charAt(i)</mark></li></ol><h3 class="" id="206a2a47-e0e7-80b9-9298-e13cb945cc64"><em><span style="border-bottom:0.05em solid">Array</span></em></h3><p class="" id="206a2a47-e0e7-8044-8be3-edaea3026a4b"><mark class="highlight-yellow">they r objects</mark></p><ol class="numbered-list" id="206a2a47-e0e7-80a5-a2ec-c55cd8f1fe3e" start="1" type="1"><li>int[] a ; int a[] ; a =new int[100];</li></ol><ol class="numbered-list" id="206a2a47-e0e7-809c-8263-d25bcc05b688" start="2" type="1"><li><mark class="highlight-teal"><mark class="highlight-teal_background"><code>a.length</code></mark></mark> size of a.<p class="" id="206a2a47-e0e7-808e-81fc-c79fea07cdd6">eg) <mark class="highlight-teal"><mark class="highlight-teal_background"><code>int n =20;</code></mark></mark><div class="indented"><p class="" id="206a2a47-e0e7-80f9-af53-d94a06978569"><mark class="highlight-teal"><mark class="highlight-teal_background"><code>a =new int [n];</code></mark></mark><br/>//an array a of size n<br/></p></div></p></li></ol><ol class="numbered-list" id="206a2a47-e0e7-8040-8387-d7216d638d5e" start="3" type="1"><li>Immutable like strings.</li></ol><ol class="numbered-list" id="217a2a47-e0e7-8045-8e74-c6ac46209e65" start="4" type="1"><li>Initialization of String array—— String eprojects=new String[size];(<mark class="highlight-red">variable name on left side only, noneed of []</mark>)<p class="" id="217a2a47-e0e7-806b-9c25-dcfc25fd4ead">
+</p></li></ol><hr id="207a2a47-e0e7-809b-92e4-c1b16a8e2182"/><h1 class="" id="207a2a47-e0e7-8038-adab-cfbbe46c1187">3) <em><span style="border-bottom:0.05em solid">Control Flow In Java</span></em></h1><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="208a2a47-e0e7-809c-8ecf-c3f0e778394b"><code class="language-Java">if(){ }
+else if() { }
+else{ }</code></pre><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="208a2a47-e0e7-8082-b63c-eeb5dfd9210e"><code class="language-Java">while (c) {}
+// can come out without even one iteration
+
+do{}
+while(c);
+//will always enter the loop atleast once</code></pre><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="208a2a47-e0e7-809e-97c9-e8ccd73aae29"><code class="language-Java">for(initialization ; condition; updation){}
+//u can use int i at initialization inside the for loop and alsoo ooutside the loop as well
+
+//Enhanced For Loop
+int[] numbers = {1, 2, 3, 4, 5};
+for (int num : numbers) {
+    System.out.println(num);
+}
+for(String s : this.eprojects) { // Assuming this.eprojects is the array
+    System.out.println(s);
+}//for loop iteration over each array cell of eprojects and putting it into a variable s.</code></pre><p class="" id="217a2a47-e0e7-8051-b094-d2b4d3b4b3a4">
+</p><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="208a2a47-e0e7-80b6-b6b4-f87abaa67138"><code class="language-Java">switch(c){
+case 1: 
+case 2: 
+...
+}</code></pre><hr id="20aa2a47-e0e7-8029-8260-df022c41f001"/><h1 class="" id="20aa2a47-e0e7-80f0-b5a4-e412b5bcce7f">4) <em><span style="border-bottom:0.05em solid">Classes And Objects</span></em></h1><p class="" id="213a2a47-e0e7-808a-b16d-fc1ff774894b"><em><mark class="highlight-yellow"><strong><span style="border-bottom:0.05em solid">If a method is called by the mainfxn from outside the main function, it must also be declared as static, just like main.</span></strong></mark></em></p><p class="" id="20aa2a47-e0e7-8039-bc5c-e7901c9a8fee">classes by default are public. so if u wrote a code like class cars{} , it means its implicitly considered to be public unless specified as Private.</p><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="20ca2a47-e0e7-80e2-b3f4-c7dae242b067"><code class="language-Java">public class Date {
+	private int day, month, year;
+	...
+	public void setDate(int d,int m, int y)
+	{
+		this.day=d;
+		this.month=m; //this refers to the day object of the class.
+		this.year=y;
+	}
+}
+//here Date is the class and day, month, year re only saved here not outside this class.
+</code></pre><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="20ca2a47-e0e7-80e0-8066-e64f8f5e91ad"><code class="language-Java">public void UseDate() {
+	Date d; //here we set type for d which is the date class
+	d=new Date(); //creates a Date object d.
+}</code></pre><p class="" id="213a2a47-e0e7-8037-9ece-dcbde9af0411"><em><mark class="highlight-blue">The instance variables are initialized to default values, if no explicit initialization is done.</mark></em></p><h3 class="" id="20ca2a47-e0e7-80c1-a878-d0b5067cca82"><code>set</code> (Mutator):</h3><ul class="bulleted-list" id="20ca2a47-e0e7-80cc-9fda-d590881c3817"><li style="list-style-type:disc">Used to <strong>put</strong> or <strong>update</strong> values in an object.</li></ul><h3 class="" id="20ca2a47-e0e7-8021-bf22-e6721f788cdd"><code>get</code> (Accessor):</h3><ul class="bulleted-list" id="20ca2a47-e0e7-8076-91a8-ff3a4794e40b"><li style="list-style-type:disc">Used to <strong>return</strong> or <strong>read</strong> the current value stored in the object.</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="20ca2a47-e0e7-80e7-bd5f-e5ef16f756bd"><code class="language-Java">public class Main {
+    public static void main(String[] args) {
+        Date today = new Date();
+
+        // Using the mutator to set the values
+        today.setDate(8, 6, 2025);
+
+        // Using accessors to read the values
+        System.out.println("Day: " + today.getDay());
+        System.out.println("Month: " + today.getMonth());
+        System.out.println("Year: " + today.getYear());
+    }
+}
+</code></pre><p class="" id="211a2a47-e0e7-8087-85a9-f5782adc2571">
+</p><h3 class="" id="211a2a47-e0e7-8093-ae52-c84d08850d22"><span style="border-bottom:0.05em solid">Constructors and Overloading </span></h3><figure class="image" id="213a2a47-e0e7-80a2-a086-f965be1a5214"><a href="Week%202/image%204.png"><img src="Week%202/image%204.png" style="width:433.1625061035156px"/></a></figure><ul class="bulleted-list" id="211a2a47-e0e7-8036-b73e-e59f3b80e749"><li style="list-style-type:disc">so its like a function with same <mark class="highlight-red">name as class</mark> but and has parameters in it.</li></ul><ul class="bulleted-list" id="213a2a47-e0e7-804d-ae6a-d556b8acbd44"><li style="list-style-type:disc">no return type.</li></ul><ul class="bulleted-list" id="213a2a47-e0e7-80fc-b597-d8db488321ca"><li style="list-style-type:disc">automatically work when we  call a class.</li></ul><ul class="bulleted-list" id="211a2a47-e0e7-8081-9682-f41d1f0988b3"><li style="list-style-type:disc">many constructors can be used multiple times within a class aka many functions with same class<mark class="highlight-red"> </mark>name <mark class="highlight-red">but different no.of parameters</mark>. this is called <em><mark class="highlight-blue">overloading</mark></em>.</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="212a2a47-e0e7-8032-8dc9-ccefd86af2a7"><code class="language-Java">public class Demo{
+	String name;
+	int a ,b;
+	
+	//constructor1
+	public Demo(int x){
+		a=x;
+		System.out.pirntln("one int: " + a);
+	}
+	 // Constructor 2: 1 String
+    public Demo(String s) {
+        name = s;
+        System.out.println("One String: " + name);
+    }
+
+    // Constructor 3: 2 ints
+    public Demo(int x, int y) {
+        a = x;
+        b = y;
+        System.out.println("Two ints: " + a + ", " + b);
+    }
+
+    // Constructor 4: String, int
+    public Demo(String s, int x) {
+        name = s;
+        a = x;
+        System.out.println("String and int: " + name + ", " + a);
+    }
+
+    // Constructor 5: int, String
+    public Demo(int x, String s) {
+        a = x;
+        name = s;
+        System.out.println("int and String: " + a + ", " + name);
+    }
+}</code></pre><h3 class="" id="213a2a47-e0e7-80a4-9cc2-f2c9947a821d"><em><span style="border-bottom:0.05em solid">"this()" Keyword</span></em></h3><ul class="bulleted-list" id="213a2a47-e0e7-80a1-a5a5-c9722814b6f5"><li style="list-style-type:disc">constructors can communicate with other constructors using the keyword <mark class="highlight-red">THIS</mark></li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="213a2a47-e0e7-80dd-a368-d153bbd72a1a"><code class="language-Java">public class Date {
+    private int day, month, year;
+
+    // Full version: user gives everything
+    public Date(int d, int m, int y) {
+        day = d;
+        month = m;
+        year = y;
+    }
+
+    // Simpler version: year is assumed to be 2021
+    public Date(int d, int m) {
+        this(d, m, 2021);  // calls the full one with default year
+    }
+    
+    // I jus wanna put date of this months soo
+    public Date(int d){
+	    this(d,5,2025);
+    }
+}</code></pre><p class="" id="213a2a47-e0e7-8097-ac3b-c7dee7c61185">here the second overloaded constructor need not write the whole code for putting day and month and instead just <em>reuse the first constructor's code</em> by calling it using <mark class="highlight-red">THIS.</mark></p><h3 class="" id="213a2a47-e0e7-80af-8f89-e6abed6a93b2"><em><span style="border-bottom:0.05em solid">Copy Constructor</span></em></h3><ul class="bulleted-list" id="213a2a47-e0e7-8080-afb0-e71e0bdfb3b2"><li style="list-style-type:disc">A <strong>copy constructor</strong> lets you create a <strong>new object</strong> by <strong>copying</strong> the data from an <strong>existing object</strong>.(copy from one to another but both are different)</li></ul><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="213a2a47-e0e7-8090-b31d-c32daddcccee"><code class="language-Java">public Date(Date d){
+    this.day = d.day;
+    this.month = d.month;
+    this.year = d.year;
+}
+</code></pre><p class="" id="213a2a47-e0e7-8068-9305-e8b69c84a723">here<mark class="highlight-red"> </mark><em><mark class="highlight-red"><strong>this </strong></mark></em>means the current object… not another constructor</p><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="213a2a47-e0e7-80f9-8be4-e65c7eacf87e"><code class="language-Java">Date d1,d2;
+d1=new Date(17,10,2025);
+d2=new Date(d1);</code></pre><p class="" id="213a2a47-e0e7-8084-adc5-d6c9dae6a446">here d2 is a date object which copies all instance values of d,m,y of d1 into itself but later changing values in d1 wont change the values of d1. its like a separate copy.</p><p class="" id="213a2a47-e0e7-805a-a4d5-df3aa53941e1">
+</p><p class="" id="213a2a47-e0e7-80dd-85af-f127707f693d"><span style="border-bottom:0.05em solid">Shallow &amp; Deep Copy</span> </p><ul class="bulleted-list" id="213a2a47-e0e7-8043-b0ff-f29567b5338b"><li style="list-style-type:disc"><strong>Shallow copy</strong>: Just copies values (like numbers).</li></ul><ul class="bulleted-list" id="213a2a47-e0e7-80d7-ac60-e5189122afcd"><li style="list-style-type:disc"><strong>Deep copy</strong>: If your object contains other objects (e.g. list, class inside class), deep copy <strong>duplicates</strong> them too — not just references.</li></ul><hr id="213a2a47-e0e7-80db-bed8-ff60428c37f3"/><h1 class="" id="213a2a47-e0e7-807d-8c5b-ec350dd70932">5) <em><span style="border-bottom:0.05em solid">Basic Input &amp; Output</span></em></h1><h2 class="" id="213a2a47-e0e7-8061-997a-d7eaa628244d"><em><span style="border-bottom:0.05em solid">Input</span></em></h2><h3 class="" id="213a2a47-e0e7-808f-9466-dbe599cb93ad">1) <em><span style="border-bottom:0.05em solid">Console class</span></em></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="213a2a47-e0e7-8077-a77f-c4efcf9b406d"><code class="language-Java">Console cons = System.console();
+
+String username= cons.readLine("User name: ");
+char[] passwd= cons.readPassword("Password: ");</code></pre><p class="" id="213a2a47-e0e7-8010-83ca-e5fe95afc7ed">String is immutable and stays in mry ; we dont want that for password and also readPassword hides what u r typing aka does not echo characters onto the screen.</p><h3 class="" id="213a2a47-e0e7-8094-afc6-e891d47ee616">2) <em><span style="border-bottom:0.05em solid">Scanner class</span></em></h3><script crossorigin="anonymous" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" referrerpolicy="no-referrer" src="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><link crossorigin="anonymous" href="https:/cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" referrerpolicy="no-referrer" rel="stylesheet"/><pre class="code" id="213a2a47-e0e7-8024-8308-f39c5f73bd88"><code class="language-Java">Scanner in = new Scanner(System.in);
+String s= in.nextLine();//reada full line as one string
+int age = in.nextInt();//read next integer that the user puts
+String word= in.next();//read next string token (delimiter is whitespace)</code></pre><p class="" id="218a2a47-e0e7-801a-a806-e251b6053886">When using the <code>Scanner</code> class in Java to read a string after reading an integer, there's a common issue: the <code>nextInt()</code> method (and similar methods like <code>nextDouble()</code> or <code>nextByte()</code>) leaves behind a newline character (<code>\n</code>) from when the user presses Enter. This remaining newline character gets immediately consumed by the following <code>nextLine()</code> call, which makes it seem like the string input was skipped.</p><p class="" id="218a2a47-e0e7-80be-8e92-c40ac133ddeb">💡 put explicit sc.nextLine(); after the above code to skip them</p><h2 class="" id="213a2a47-e0e7-8094-bca9-fa8cc25b0977"><em><span style="border-bottom:0.05em solid">Output</span></em></h2><h3 class="" id="213a2a47-e0e7-801d-850c-fc1982b67e73"><em><span style="border-bottom:0.05em solid">System.out.println(arg)</span></em></h3><p class="" id="213a2a47-e0e7-8062-8f98-c70b8b3d1463">prints the arg into a new line by IMPLICITLY converting it into a string first.</p><p class="" id="21ca2a47-e0e7-8066-9299-d554c1d297c3">
+</p><h3 class="" id="21ca2a47-e0e7-80c1-929d-d657c867789c"><em><span style="border-bottom:0.05em solid">System.out.printf(arg)</span></em></h3><p class="" id="213a2a47-e0e7-8053-b837-f78a82aff808">formatted print statement</p><p class="" id="21ca2a47-e0e7-806f-aeed-d1e5fd9cd484">The general syntax for a format specifier is: <code>%[flags][width][.precision]conversion</code></p><p class="" id="21ca2a47-e0e7-8060-b1af-cae6e0a56db1">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"><hr/><details open="" style="padding-top:1em"><summary style="font-weight:600;font-size:1.25em;line-height:1.3;margin:0">Inline comments</summary><div class="indented"><div><p style="padding:0.2em"><b>Block text</b>: <mark class="highlight-yellow_background">public class Date {<br/>    private int day, month, year;<br/><br/>    // Full version: user gives everything<br/>    public Date(int d, int m, int y) {<br/>        day = d;<br/>        month = m;<br/>        year = y;<br/>    }<br/><br/>    // Simpler version: year is assumed to be 2021<br/>    public Date(int d, int m) {<br/>        this(d, m, 2021);  // calls the full one with default year<br/>    }<br/> <br/>    // I jus wanna put date of this months soo<br/>    public Date(int d){<br/>	    this(d,5,2025);<br/>    }<br/>}<br/></mark></p><ul class="toggle"><li><div><span class="user" style="padding:0.2em"><img class="icon user-icon" src="https:/lh3.googleusercontent.com/a-/AFdZucopVc4z7zGfIflD4MQQ3UJ6Q-ynYcLZnzwkbLMABw=s100"/><span><b>Mathew Jobey</b> <time style="font-size:0.8em">Jun 15, 2025, 4:45 PM</time></span></span></div><div style="padding:0.2em">Means:<br/><br/>If the user just says:<br/><br/><br/><code>Date x = new Date(10);<br/><br/></code><br/>They are saying:<br/><br/>👉 "Set the day to 10, and use default month = 5 and year = 2025."<br/>So this constructor automatically <br/><strong>fills in</strong>:<br/>• <br/><code>month = 5</code><br/>• <br/><code>year = 2025</code></div><div style="padding:0.3em"></div></li></ul></div><hr/></div></details></span></body></html>
