@@ -1,10 +1,10 @@
-[Robocopy Sync Log - 26-06-2025 14:15:58.43] 
+[Robocopy Sync Log - 26-06-2025 14:23:52.80] 
 
 -------------------------------------------------------------------------------
    ROBOCOPY     ::     Robust File Copy for Windows                              
 -------------------------------------------------------------------------------
 
-  Started : Thursday, 26 June, 2025 02:15:58 PM
+  Started : Thursday, 26 June, 2025 02:23:52 PM
    Source : C:\Users\Mathe\Downloads\notion-temp\
      Dest : C:\GitHub\Programming-Concepts-Using-Java\
 
@@ -23,7 +23,7 @@ Exc Files : README.md
 
 	                   1	C:\Users\Mathe\Downloads\notion-temp\
 	  *EXTRA File 		      47	last-robocopy.log
-2025/06/26 14:15:58 ERROR 32 (0x00000020) Deleting Extra File C:\GitHub\Programming-Concepts-Using-Java\last-robocopy.log
+2025/06/26 14:23:52 ERROR 32 (0x00000020) Deleting Extra File C:\GitHub\Programming-Concepts-Using-Java\last-robocopy.log
 The process cannot access the file because it is being used by another process.
 
 	    Newer     		   20000	Programming Concepts Using Java.html100%  
@@ -46,7 +46,7 @@ The process cannot access the file because it is being used by another process.
    Times :   0:00:00   0:00:00                       0:00:00   0:00:00
 
 
-   Speed :           51,19,300 Bytes/sec.
-   Speed :             292.929 MegaBytes/min.
-   Ended : Thursday, 26 June, 2025 02:15:58 PM
+   Speed :           56,88,111 Bytes/sec.
+   Speed :             325.476 MegaBytes/min.
+   Ended : Thursday, 26 June, 2025 02:23:52 PM
 
